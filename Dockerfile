@@ -35,7 +35,6 @@ CMD ["foreman", "start", "-f", "Procfile.dev"]
 EXPOSE 5000
 
 FROM ruby:3.0.0-alpine as prod-build
-
 RUN apk add --update --virtual \
     runtime-deps \
     postgresql-client \
