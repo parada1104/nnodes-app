@@ -10,5 +10,21 @@
 require 'rails_helper'
 
 RSpec.describe Round, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "validation tests" do
+    let(:round) { FactoryBot.build(:round) }
+
+    it "has valid factory" do
+      expect(round).to be_valid
+    end
+
+    describe "active model validations" do
+      it {expect(round).to validate_presence_of(:color)}
+      it {expect(round).to define_enum_for(:color).with([:green, :red, :black])}
+    end
+
+    describe "active record associations" do
+      it {expect(round).to have_many(:bets).dependent(:destroy)}
+      it {expect(round).to have_many(:players).through(:bets)}
+    end
+  end
 end

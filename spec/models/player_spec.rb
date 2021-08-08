@@ -13,5 +13,29 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "validation tests" do
+    let(:player) { FactoryBot.build(:player) }
+
+    it "has a valid factory" do
+      expect(player).to be_valid
+    end
+
+    describe "active model validations" do
+      it { expect(player).to validate_presence_of(:name) }
+      it { expect(player).to validate_presence_of(:lastName) }
+      it { expect(player).to validate_numericality_of(:balance) }
+    end
+
+    describe "active record associations" do
+      it { expect(player).to have_many(:bets).dependent(:destroy) }
+      it { expect(player).to have_many(:rounds).through(:bets) }
+      it { expect(player).to accept_nested_attributes_for(:bets) }
+    end
+
+    describe "monetize validations" do
+      it "monetize balance" do
+
+      end
+    end
+  end
 end
