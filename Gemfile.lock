@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 1a53fb2ca7a560f287b966aa117d353de827b191
+  branch: master
+  specs:
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,6 +70,9 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     bindex (0.8.1)
     bootsnap (1.7.7)
       msgpack (~> 1.0)
@@ -250,11 +261,13 @@ PLATFORMS
   aarch64-linux-musl
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
   database_cleaner-active_record
   factory_bot_rails
+  faker!
   foreman (~> 0.87.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
