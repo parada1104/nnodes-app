@@ -61,4 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'redis', '~> 4.4'
 gem 'sidekiq', '~> 6.2', '>= 6.2.1'
 gem 'foreman', '~> 0.87.2'
-
+gem 'money-rails', '~>1.12'
+gem 'rails-i18n', '~> 6.0.0'
