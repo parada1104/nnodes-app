@@ -25,6 +25,7 @@ WORKDIR /app
 COPY . /app/
 COPY /Gemfile /Gemfile
 COPY /Gemfile.lock /Gemfile.lock
+COPY /package.json /package.json
 
 RUN gem install foreman
 ENV BUNDLE_PATH /gems
