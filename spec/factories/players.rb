@@ -13,6 +13,6 @@
 FactoryBot.define do
   factory :player do
     name { Faker::Name.name }
-    lastName { "MyString" }
+    lastName { Faker::Name.last_name }
   end
 end

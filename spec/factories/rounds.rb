@@ -9,6 +9,6 @@
 #
 FactoryBot.define do
   factory :round do
-    color { 1 }
+    color { Round.colors.keys.to_a.sample}
   end
 end
