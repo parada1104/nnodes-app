@@ -22,4 +22,5 @@ class Player < ApplicationRecord
   ##validations
   validates :name, presence: true
   validates :lastName, presence: true
+  validates :balance, numericality: true
 end

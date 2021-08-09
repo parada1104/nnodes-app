@@ -19,13 +19,14 @@ RSpec.describe Round, type: :model do
 
     describe "active model validations" do
       it { expect(round).to validate_presence_of(:color) }
-      it { expect(round).to validate_inclusion_of(:color).in_array(Round.colors.keys) }
+      # it { expect(round).to validate_inclusion_of(:color).in_array(Round.colors.keys) }
       it { expect(round).to define_enum_for(:color).with_values([:green, :red, :black]) }
     end
 
     describe "active record associations" do
       it { expect(round).to have_many(:bets).dependent(:destroy) }
       it { expect(round).to have_many(:players).through(:bets) }
+      it { expect(round).to accept_nested_attributes_for(:bets) }
     end
   end
 end

@@ -24,17 +24,18 @@ RSpec.describe Bet, type: :model do
     end
 
     describe "active model validations" do
-      it { expect(bet).to validate_presence_of(:player)}
-      it { expect(bet).to validate_presence_of(:round)}
-      it { expect(bet).to validate_presence_of(:betAmount)}
-      it { expect(bet).to validate_presence_of(:prizeAmount)}
-      it { expect(bet).to validate_numericality_of(:betAmount)}
-      it { expect(bet).to validate_numericality_of(:prizeAmount)}
+      it { expect(bet).to validate_presence_of(:player) }
+      it { expect(bet).to validate_presence_of(:round) }
+      it { expect(bet).to validate_presence_of(:betColor) }
+      it { expect(bet).to validate_numericality_of(:betAmount) }
+      it { expect(bet).to validate_numericality_of(:prizeAmount) }
+      # it { expect(round).to validate_inclusion_of(:betColor).in_array(Bet.colors.keys) }
     end
 
     describe "active record associations" do
-      it { expect(bet).to belong_to(:player)}
-      it { expect(bet).to belong_to(:round)}
+      it { expect(bet).to belong_to(:player) }
+      it { expect(bet).to belong_to(:round) }
+      it { expect(bet).to validate_uniqueness_of(:player).scoped_to(:round_id).with_message("you can't bet more than once per round") }
     end
   end
 end

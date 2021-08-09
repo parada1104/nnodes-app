@@ -13,7 +13,8 @@ class Round < ApplicationRecord
   ##associations
   has_many :bets, dependent: :destroy
   has_many :players, through: :bets
+  accepts_nested_attributes_for :bets
 
   ##validations
-  validates :color, presence: true, inclusion: { in: Round.colors.keys }
+  validates :color, presence: true
 end
