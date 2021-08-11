@@ -15,7 +15,6 @@ MoneyRails.configure do |config|
   # (The conversion rate refers to one direction only)
   #
   # Example:
-  config.add_rate "CLP", "USD", 1 / 788.25
 
   # To handle the inclusion of validations for monetized fields
   # The default value is true
@@ -81,6 +80,10 @@ MoneyRails.configure do |config|
   #   symbol: nil,
   #   sign_before_symbol: nil
   # }
+  #
+  config.default_format = {
+    thousands_separator: "."
+  }
 
   # If you would like to use I18n localization (formatting depends on the
   # locale):

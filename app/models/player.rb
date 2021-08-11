@@ -11,6 +11,8 @@
 #  updated_at       :datetime         not null
 #
 class Player < ApplicationRecord
+  enum status: {inactive: 0, active: 1}
+
   ##associations
   has_many :bets , dependent: :destroy
   has_many :rounds, through: :bets
@@ -23,4 +25,8 @@ class Player < ApplicationRecord
   validates :name, presence: true
   validates :lastName, presence: true
   validates :balance, numericality: true
+
+  def full_name
+    "#{self.name} #{self.lastName}"
+  end
 end
