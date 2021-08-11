@@ -1,0 +1,9 @@
+<tr>
+  <th scope="row">#</th>
+  <td><%= player.full_name %></td>
+  <td><%= humanized_money_with_symbol player.balance %></td>
+  <td><%= player.status %></td>
+  <td>
+    <%= render partial: "players/actions", locals: { player: player} %>
+  </td>
+</tr>

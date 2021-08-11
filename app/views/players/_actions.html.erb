@@ -1,0 +1,6 @@
+<%= link_to "Edit", edit_player_path(player), class: "btn btn-warning" %>
+<% if player.active? %>
+  <%= link_to "Disenroll", change_status_player_path(player, status: :inactive), method: :patch , data: { confirm: "are you sure? this player won't be able to perfom a bet, that means no money for us", disable_with: "disenrolling..." }, class: "btn btn-danger" %>
+<% else %>
+  <%= link_to "Re Enroll", change_status_player_path(player, status: :active), method: :patch , data: { confirm: "are you sure to allow this player to bet? there is might be a reason why you disenrolled ", disable_with: "re enrolling..." }, class: "btn btn-success" %>
+<% end %>

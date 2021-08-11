@@ -1,0 +1,16 @@
+<%= form_with model: @player, local: true, html: {class: "card p-5"} do |f| %>
+      <div class="form-group mb-2">
+        <%= f.text_field :name , class: "form-control", placeholder: "Player name" %>
+      </div>
+      <div class="form-group mb-2">
+        <%= f.text_field :lastName, class: "form-control", placeholder: "Player last name" %>
+      </div>
+      <% if "edit" == action_name %>
+      <div class="form-group mb-2">
+        <%= f.text_field :balance, class: "form-control", placeholder: "Player new balance" %>
+      </div>
+      <% end %>
+      <div class="form-group mb-2">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+<% end %>
