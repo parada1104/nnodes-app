@@ -1,5 +1,7 @@
 Sidekiq.configure_client do |config|
-    Rails.application.config.after_initialize do
-      AnaylyzeWeatherWorker.perform_async
-    end
+  require 'periodic_jobs'
+  Rails.application.config.after_initialize do
+    AnaylyzeWeatherWorker.perform_async
+  end
+  config.periodic(&PERIODIC_JOBS)
 end
