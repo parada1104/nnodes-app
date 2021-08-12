@@ -20,6 +20,9 @@ class RoundForm
           player.update(balance: new_balance)
         end
       end
+        ActionCable.server.broadcast "room_channel", { message: "round finished",
+                                                       element: ApplicationController.render( partial: 'pages/index/round',locals: { round: @round }).squish
+                                                      }
     else 
       false
     end

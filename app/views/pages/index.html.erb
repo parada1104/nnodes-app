@@ -1,7 +1,11 @@
 <%= render "/pages/index/round_timer" %>
 <% unless @rounds.nil? %>
-  <% @rounds.each do |round| %>
-      <%= render partial: "pages/index/round", locals: { round: round  } %>
-  <% end %>
+  <div class="row">
+    <div class="col-md-12" data-target="rounds_column">
+      <% @rounds.each do |round| %>
+        <%= render partial: "pages/index/round", locals: { round: round  } %>
+      <% end %>
+    </div>
+  </div>
   <%= will_paginate @rounds %>
 <% end %>
