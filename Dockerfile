@@ -21,8 +21,8 @@ RUN apk add --update --virtual \
     tzdata \
     && rm -rf /var/cache/apk/*
 
-WORKDIR /app
-COPY . /app/
+WORKDIR /myapp
+COPY . /myapp/
 COPY /Gemfile /Gemfile
 COPY /Gemfile.lock /Gemfile.lock
 COPY /package.json /package.json
@@ -51,21 +51,19 @@ RUN apk add --update --virtual \
     linux-headers \
     readline-dev \
     file \
-    imagemagick \
     git \
     tzdata \
+    python2 \
+    vim \
     && rm -rf /var/cache/apk/*
-
-ENV RAILS_ENV='production'
-ENV RAKE_ENV='production'
-
 # Set working directory, where the commands will be ran:
-WORKDIR /app
-COPY . /app
-RUN yarn install
+WORKDIR /myapp
+COPY . . 
+RUN gem install foreman
+RUN yarn install --production
 RUN bundle install --jobs 20 --retry 5 --without development test
-RUN bundle exec rails assets:precompile
-
+ENTRYPOINT [ "./docker-entrypoint.sh" ]
+RUN chmod +x ./docker-entrypoint.sh
 EXPOSE 5000
 
 CMD ["foreman", "start", "-f", "Procfile"]

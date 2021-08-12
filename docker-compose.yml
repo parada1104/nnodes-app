@@ -22,7 +22,7 @@ services:
   web:
     build:
       context: .
-      target: dev-build
+      target: prod-build
     env_file: .env
     restart: unless-stopped
     volumes:
