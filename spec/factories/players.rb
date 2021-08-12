@@ -14,6 +14,6 @@
 FactoryBot.define do
   factory :player do
     name { Faker::Name.name }
-    lastName { Faker::Name.last_name }
+    last_name { Faker::Name.last_name }
   end
 end

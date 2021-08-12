@@ -23,7 +23,7 @@ RSpec.describe Player, type: :model do
 
     describe "active model validations" do
       it { expect(player).to validate_presence_of(:name) }
-      it { expect(player).to validate_presence_of(:lastName) }
+      it { expect(player).to validate_presence_of(:last_name) }
       it { expect(player).to validate_numericality_of(:balance) }
     end
 
@@ -34,9 +34,7 @@ RSpec.describe Player, type: :model do
     end
 
     describe "monetize validations" do
-      it "monetize balance" do
-
-      end
+      it { expect(player).to monetize(:balance_cents).as(:balance) }
     end
   end
 end

@@ -17,8 +17,6 @@ FactoryBot.define do
   factory :bet do
     association :player
     association :round
-    betColor { Bet.colors.keys.to_a.sample }
-    betAmount { 1300*100 }
-    prizeAmount { 0 }
+    color { Bet.colors.keys.to_a.sample }
   end
 end
