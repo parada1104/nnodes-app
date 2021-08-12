@@ -58,11 +58,11 @@ class PlayersController < ApplicationController
 
   private
   def create_params
-    params.require(:player).permit(:name, :lastName)
+    params.require(:player).permit(:name, :last_name)
   end
 
   def update_params
-    params.require(:player).permit(:name, :lastName, :balance, :status)
+    params.require(:player).permit(:name, :last_name, :balance, :status)
   end
 
   def set_player

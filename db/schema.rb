@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_145331) do
+ActiveRecord::Schema.define(version: 2021_08_11_201948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 2021_08_11_145331) do
   create_table "bets", force: :cascade do |t|
     t.bigint "player_id", null: false
     t.bigint "round_id", null: false
-    t.integer "betColor", null: false
-    t.integer "betAmount_cents", default: 0, null: false
-    t.string "betAmount_currency", default: "CLP", null: false
-    t.integer "prizeAmount_cents", default: 0, null: false
-    t.string "prizeAmount_currency", default: "CLP", null: false
+    t.integer "color", null: false
+    t.integer "bet_amount_cents", default: 0, null: false
+    t.string "bet_amount_currency", default: "USD", null: false
+    t.integer "prize_amount_cents", default: 0, null: false
+    t.string "prize_amount_currency", default: "USD", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id", "round_id"], name: "index_bets_on_player_id_and_round_id", unique: true
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2021_08_11_145331) do
 
   create_table "players", force: :cascade do |t|
     t.string "name", null: false
-    t.string "lastName", null: false
+    t.string "last_name", null: false
     t.integer "balance_cents", default: 1000000, null: false
-    t.string "balance_currency", default: "CLP", null: false
+    t.string "balance_currency", default: "USD", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 1, null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_08_11_145331) do
     t.integer "color", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "started_at"
+    t.datetime "finished_at"
   end
 
   add_foreign_key "bets", "players"
