@@ -1,0 +1,21 @@
+<div class="card row">
+  <div class="col-md-10">
+    <h2>Round #<%= round.id%></h2>
+  </div>
+  <div class="col-2">
+    <p>result: <%= round.color %></p>
+  </div>
+</div>
+<table class="table table-striped mb-5">
+  <thead>
+    <tr>
+      <th scope="col">player name</th>
+      <th scope="col">player bet</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% round.bets.each do |bet| %>
+    <%= render partial: "pages/index/round_bet", locals: { bet: bet, round: round} %>
+  <% end %>
+  </tbody>
+</table>

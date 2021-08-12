@@ -1,1 +1,7 @@
-<h1>Soy la pagina principal</h1>
+<%= render "/pages/index/round_timer" %>
+<% unless @rounds.nil? %>
+  <% @rounds.each do |round| %>
+      <%= render partial: "pages/index/round", locals: { round: round  } %>
+  <% end %>
+  <%= will_paginate @rounds %>
+<% end %>
