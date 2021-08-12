@@ -68,3 +68,4 @@ gem 'money-rails', '~>1.12'
 gem 'rails-i18n', '~> 6.0.0'
 gem "httparty"
 gem 'will_paginate', '~> 3.3'
+gem "sidekiq-scheduler"

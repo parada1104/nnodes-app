@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  require 'sidekiq/web'
+  # For details on the SL available within this file, see https://guides.rubyonrails.org/routing.html
+  mount Sidekiq::Web => '/sidekiq'
   root to: "pages#index"
+
   resources :players, except: [:show] do
     member do
       patch :change_status

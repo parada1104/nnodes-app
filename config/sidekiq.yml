@@ -1,0 +1,9 @@
+:schedule:
+  create_round:
+    every: 3m
+    class: RoundCreateWorker
+  anaylyze_weather:
+    cron: "0 0 * * * *" #dauly at midnight start of the day
+    class: AnaylyzeWeatherWorker
+  recharge_players:
+    cron: "59 23 * * * *" #daily before midnight end of the day
