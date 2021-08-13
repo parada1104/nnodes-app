@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
   # For details on the SL available within this file, see https://guides.rubyonrails.org/routing.html
+  mount ActionCable.server, at: '/cable'
   mount Sidekiq::Web => '/sidekiq'
   root to: "pages#index"
 

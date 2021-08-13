@@ -1,6 +1,6 @@
 class RoundChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel"
+    stream_from "round_channel"
   end
 
   def unsubscribed
