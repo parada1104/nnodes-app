@@ -17,3 +17,4 @@ staging:
     class: AnaylyzeWeatherWorker
   recharge_players:
     cron: "59 23 * * * *" #daily before midnight end of the day
+    class: BalanceRechargeWorker

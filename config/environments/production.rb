@@ -5,7 +5,6 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.action_cable.allowed_request_origins =  "*"
   config.force_ssl = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -44,8 +43,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://example.com/cable'
-  config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  config.action_cable.url = 'wss://nnodesapp.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [ 'http://nnodesapp.herokuapp.com', /http:\/\/nnodesapp.herokuapp.com.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
