@@ -1,3 +1,8 @@
+production:
+  :concurrency: 3
+staging:
+  :concurrency: 15
+
 :schedule:
   create_round:
     every: 3m
