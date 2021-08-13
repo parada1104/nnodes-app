@@ -1,20 +1,22 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV["DATABASE_HOST"] %>
-  username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
+  host: <%= ENV["DATABASE_HOST"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   database: nnodes_development
 
 test:
   <<: *default
+  host: <%= ENV["DATABASE_HOST"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   database: nnodes_test
 
 production:
   <<: *default
-  database: nnodes_production
-  url: <%= ENV["DATABASE_URL"] %>
+  database: <%= ENV["DATABASE_URL"] %>
