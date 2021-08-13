@@ -17,3 +17,4 @@ test:
 production:
   <<: *default
   database: nnodes_production
+  url: <%= ENV["DATABASE_URL"] %>
